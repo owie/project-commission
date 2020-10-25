@@ -1,0 +1,22 @@
+{
+  "name": "project-commission",
+  "version": "1.0.0",
+  "description": "Commission",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --es-module-specifier-resolution=node app.js rounded",
+    "dev:raw": "nodemon --es-module-specifier-resolution=node app.js"
+  },
+  "author": "Eliel Roei R. Reyes",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.12.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.1"
+  },
+  "type": "module"
+}
