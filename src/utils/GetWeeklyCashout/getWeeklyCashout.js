@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
-import getDateWeekRange from './getDateWeekRange';
-import groupBy from './groupBy';
+import getDateWeekRange from '../GetDateWeekRange';
+import groupBy from '../GroupBy';
 
 const getWeeklyCashout = (id, transactionDate, items) => {
   const user = groupBy(items, 'user_id')[id]

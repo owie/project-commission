@@ -10,7 +10,7 @@ const getDateWeekRange = (transactionDate) => {
     let days = getMonday + index; // use index 0-6
     // get previous week if transaction date not in week range of 1-7
     if (transactionDate < firstDateString) {
-      days = getMonday - value + 1;
+      days = getMonday - value;
     };
 
     const day = new Date(date.setDate(days)).toISOString().slice(0, 10);
@@ -19,7 +19,7 @@ const getDateWeekRange = (transactionDate) => {
     return item;
   }, [])
 
-  return week;
+  return transactionDate < firstDateString ? week.reverse() : week;
 }
 
 export default getDateWeekRange;

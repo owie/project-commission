@@ -1,12 +1,12 @@
-import getKey from './getKey'
-import groupBy from './groupBy';
-import getCashIn from './getCashIn';
-import getCashOut from './getCashOut';
-import formatAmount from './formatAmount';
-import getCommission from './getCommission';
-import getDateWeekRange from './getDateWeekRange';
-import getWeeklyCashout from './getWeeklyCashout';
-import computeCommission from './computeCommission';
+import getKey from './GetKey'
+import groupBy from './GroupBy';
+import getCashIn from './GetCashIn';
+import getCashOut from './GetCashOut';
+import formatAmount from './FormatAmount';
+import getCommission from './GetCommision';
+import getDateWeekRange from './GetDateWeekRange';
+import getWeeklyCashout from './GetWeeklyCashout';
+import computeCommission from './ComputeCommission';
 
 export {
   getKey,

@@ -1,5 +1,5 @@
-import formatAmount from './formatAmount';
-import computeCommission from './computeCommission';
+import formatAmount from '../FormatAmount';
+import computeCommission from '../ComputeCommission';
 
 const getCashIn = ({ cashIn }, { operation }) => {
   const { percents, max } = cashIn;

@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
-import formatAmount from './formatAmount';
-import getWeeklyCashout from './getWeeklyCashout';
-import computeCommission from './computeCommission';
+import formatAmount from '../FormatAmount';
+import getWeeklyCashout from '../GetWeeklyCashout';
+import computeCommission from '../ComputeCommission';
 
 const getCashout = ({ cashOutLegal, cashOutNatural }, data, items) => {
   const { operation, user_type, date, user_id } = data;
