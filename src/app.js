@@ -1,8 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import axios from 'axios';
-import getCommission, { getKey } from './utils';
-import fetchData, { cashIn, cashOutLegal, cashOutNatural} from './api';
+import getCommission from './utils';
+import fetchData, { cashIn, cashOutJuridical, cashOutNatural } from './api';
 import jsonData from './mockData/input.json';
 
 let useData = jsonData;
@@ -19,48 +19,31 @@ if (fileName && filePath) {
 	useData = JSON.parse(contents);
 }
 
-// fs.access(filePath, fs.F_OK, (err) => {
-// 	if (err) {
-// 		console.error(err);
-// 		return;
-// 	}
-
-// 	//file exists
-// 	const newFilePath = filePath.replace(/\\/g, '/');
-// 	const contents = fs.readFileSync(newFilePath, 'utf8');
-	
-// 	useData = JSON.parse(contents);
-// })
-
-
 class App {
-	constructor() {
-		this.config = {}
+	
+	async loadConfig () {
+		let config = {}
+		const requestObjects = {
+			cashIn, 
+			cashOutJuridical, 
+			cashOutNatural
+		};
+		const req = Object.values(requestObjects).map((value) => fetchData(value));
+		const result = await axios.all(req);
+		
+		result.forEach((val, i) => {
+			config = {
+				...config,
+				[Object.keys(requestObjects)[i]]: val
+			}
+		})
+		return config
 	}
 	
 	async init() {
-		const requestObjects = {
-			cashIn, 
-			cashOutLegal, 
-			cashOutNatural
-		};
-
-		const request = Object.values(requestObjects).map(value => fetchData(value));
-
-		await axios.all(request)
-			.then((res) => {
-				Object.keys(requestObjects).forEach((key, index) => {
-					this.config = {
-						...this.config,
-						[getKey(key)]: res && res[index] && res[index].data
-					}
-				});
-				
-				getCommission(useData, this.config);
-			})
-			.catch(e => {
-				console.log(e, 'error');
-			}); 
+		const config = await this.loadConfig();
+		const commission = getCommission(useData, config);
+        console.log(commission.join('\r\n'));
 	}
 }
 

@@ -1,23 +1,25 @@
-/* eslint-disable camelcase */
-import getDateWeekRange from '../GetDateWeekRange';
-import groupBy from '../GroupBy';
+import moment from 'moment';
 
-const getWeeklyCashout = (id, transactionDate, items) => {
-  const user = groupBy(items, 'user_id')[id]
-    .filter((group) => {
-      const { type } = group;
-      return type === 'cash_out';
-    });
+const user = {};
 
-  const weekRange = getDateWeekRange(transactionDate);
-  return user.map((data) => {
-    const { user_id, date, operation } = data;
-    const { amount } = operation;
+const getWeeklyCashout = (id, transactionDate, amount) => {
+  let userWeeklyCashOutTotal = 0;
 
-    return user_id === id && weekRange.includes(date)
-      ? amount
-      : 0;
-  }).reduce((a, b) => a + b);
-}
+  if (!user[id]) user[id] = [];
+  const weeklyTransaction = moment(transactionDate, 'YYYY-MM-DD').format('W');
+  userWeeklyCashOutTotal = user[id]
+    .reduce((acc, val) => (weeklyTransaction === val.weeklyTransaction
+      ? acc + val.amount
+      : amount), 0);
+
+  user[id] = [
+    ...user[id],
+    {
+      weeklyTransaction,
+      amount,
+    },
+  ];
+  return userWeeklyCashOutTotal;
+};
 
 export default getWeeklyCashout;

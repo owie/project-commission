@@ -1,66 +1,66 @@
 {
-    "data": [
-        {
-            "id": "1",
-            "type": "legal"
-        },
-        {
-            "id": "2",
-            "type": "natural"
-        },
-        {
-            "id": "1",
-            "type": "legal"
-        },
-        {
-            "id": "2",
-            "type": "natural"
-        },
-        {
-            "id": "2",
-            "type": "legal"
-        },
-        {
-            "id": "1",
-            "type": "natural"
-        },
-        {
-            "id": "2",
-            "type": "legal"
-        }
-    ],
-    "expected": {
-        "legal": [
-            {
-                "id": "1", 
-                "type": "legal"
-            },
-            { 
-                "id": "1", 
-                "type": "legal"
-            },
-            { 
-                "id": "2", 
-                "type": "legal"
-            },
-            { 
-                "id": "2", 
-                "type": "legal"
-            }
-        ],
-        "natural": [
-            { 
-                "id": "2", 
-                "type": "natural" 
-            },
-            { 
-                "id": "2", 
-                "type": "natural" 
-            },
-            { 
-                "id": "1", 
-                "type": "natural" 
-            }
-        ]
-    }
+	"data": [
+		{
+			"id": "1",
+			"type": "legal"
+		},
+		{
+			"id": "2",
+			"type": "natural"
+		},
+		{
+			"id": "1",
+			"type": "legal"
+		},
+		{
+			"id": "2",
+			"type": "natural"
+		},
+		{
+			"id": "2",
+			"type": "legal"
+		},
+		{
+			"id": "1",
+			"type": "natural"
+		},
+		{
+			"id": "2",
+			"type": "legal"
+		}
+	],
+	"expected": {
+		"legal": [
+			{
+				"id": "1", 
+				"type": "legal"
+			},
+			{ 
+				"id": "1", 
+				"type": "legal"
+			},
+			{ 
+				"id": "2", 
+				"type": "legal"
+			},
+			{ 
+				"id": "2", 
+				"type": "legal"
+			}
+		],
+		"natural": [
+			{ 
+				"id": "2", 
+				"type": "natural" 
+			},
+			{ 
+				"id": "2", 
+				"type": "natural" 
+			},
+			{ 
+				"id": "1", 
+				"type": "natural" 
+			}
+		]
+	}
 }

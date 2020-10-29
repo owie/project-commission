@@ -4,13 +4,14 @@
   "description": "Commission",
   "main": "main.js",
   "scripts": {
-    "test": "jest --silent",
-    "start": "node --es-module-specifier-resolution=node main.js"
+    "test": "jest",
+    "start": "nodemon --es-module-specifier-resolution=node main.js"
   },
   "author": "Eliel Roei R. Reyes",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.2"
+    "axios": "^0.19.2",
+    "moment": "^2.29.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.12.1",
